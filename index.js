@@ -7,7 +7,9 @@ const {connection}=require('./config/db')
 
 const app=express();
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:"*"
+}))
 
 app.post('/signup',validator,userRouter)
 app.post('/login',userRouter)
