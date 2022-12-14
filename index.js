@@ -19,12 +19,12 @@ app.get('/',(req,res)=>{
 app.post('/signup',validator,userRouter)
 app.post('/login',userRouter)
 
-app.listen(1000,async()=>{
+app.listen(2000,async()=>{
     try{
        console.log("Connected to datbase")
     }
     catch(err){
         console.log(err)
     }
-    console.log('Listening in port no 1000')
+    console.log('Listening in port no 2000')
 })
