@@ -11,6 +11,11 @@ app.use(cors({
     origin:"*"
 }))
 
+app.get('/',(req,res)=>{
+    console.log('Welcome')
+    res.send("Welcome")
+})
+
 app.post('/signup',validator,userRouter)
 app.post('/login',userRouter)
 
