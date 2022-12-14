@@ -23,11 +23,11 @@ userRouter.post('/signup',async(req,res)=>{
                    let userId=userDetails[0]._id
                    console.log(userId)
                    let token=jwt.sign({"userId":userId},'nxm');
-                    res.send({"MSG":"SignUp Successfull","token":token,"userDetails":userDetails})
+                    res.send({"MSG":"Account has been created successfully","token":token,"userDetails":userDetails})
                 }
                 catch(err){
                     console.log(err);
-                    res.send({"ERR":"Some error"})
+                    res.send({"ERR":"Something went wrong"})
                 }
             }
            })
@@ -47,13 +47,13 @@ userRouter.post('/login',async(req,res)=>{
        bcrypt.compare(password,hash_pass,async function(err,result){
            if(err){
             console.log(err);
-            res.send({"ERR":"error hai"})
+            res.send({"ERR":"Something went wrong"})
            }
            else if(result){
             let token=jwt.sign({"userId":userId},'nxm');
-            res.send({"MSG":"Login suecces","token":token,"userDetails":data})
+            res.send({"MSG":"Login sueccesfull","token":token,"userDetails":data})
            }else{
-            res.send({"ERR":"Incorrect pass"})
+            res.send({"ERR":"Incorrect password"})
            }
        })  
    }
