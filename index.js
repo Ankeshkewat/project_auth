@@ -12,10 +12,8 @@ app.use(cors())
 app.post('/signup',validator,userRouter)
 app.post('/login',userRouter)
 
-
 app.listen(1000,async()=>{
     try{
-      await connection;
        console.log("Connected to datbase")
     }
     catch(err){
