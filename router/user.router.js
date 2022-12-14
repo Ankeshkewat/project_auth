@@ -23,7 +23,7 @@ userRouter.post('/signup',async(req,res)=>{
                    let userId=userDetails[0]._id
                    console.log(userId)
                    let token=jwt.sign({"userId":userId},'nxm');
-                    res.send({"MSG":"SignUp Successfull","token":token})
+                    res.send({"MSG":"SignUp Successfull","token":token,"userDetails":userDetails})
                 }
                 catch(err){
                     console.log(err);
