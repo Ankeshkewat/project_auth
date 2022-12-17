@@ -13,7 +13,7 @@ userRouter.post('/signup',async(req,res)=>{
         bcrypt.hash(password,5,async function(err, hash){
             if(err){
                 console.log(err)
-                res.send({"ERR":"Some error"})
+                res.send({"MSG":"Some error"})
             }
             else{
                 try{
@@ -27,7 +27,7 @@ userRouter.post('/signup',async(req,res)=>{
                 }
                 catch(err){
                     console.log(err);
-                    res.send({"ERR":"Something went wrong"})
+                    res.send({"MSG":"Something went wrong"})
                 }
             }
            })
@@ -47,13 +47,13 @@ userRouter.post('/login',async(req,res)=>{
        bcrypt.compare(password,hash_pass,async function(err,result){
            if(err){
             console.log(err);
-            res.send({"ERR":"Something went wrong"})
+            res.send({"MSG":"Something went wrong"})
            }
            else if(result){
             let token=jwt.sign({"userId":userId},'nxm');
             res.send({"MSG":"Login sueccesfull","token":token,"userDetails":data})
            }else{
-            res.send({"ERR":"Incorrect password"})
+            res.send({"MSG":"Incorrect password"})
            }
        })  
    }
